@@ -2,53 +2,80 @@
 <html>
   <head>
     <title>VueJs Tutorial - coligo</title>
-    <script src="http://cdn.jsdelivr.net/vue/1.0.16/vue.js"></script>
-  
+    <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' rel="stylesheet">
+  <link href="https://unpkg.com/vuetify/dist/vuetify.min.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
   </head>
   <body>
-    <div id="vue-instance">
-      <div id="vue-greeting">
-        <!-- this will be the DOM element we will mount our VueJs instance to -->
-        Enter a greeting: <input v-model="greeting" type="text" placeholder="greeting"/>
-          <p>{{ greeting }}</p>    
-      </div>
-      <div id="vue-hello">
-        Enter your name: <input type="text" placeholder="name">
-        <button v-on:click="sayHello">Hey there!</button>
-      </div>
-      <div v-if="isLoggedIn">
-        Welcome to coligo!
-        <button @click="login" type="submit">Logout</button>
-      </div>
-      <div v-else>
-        <input type="text" placeholder="username">
-        <input type="password" placeholder="password">
-        <button @click="login" type="submit">Login</button>
-      </div>
-    </div>
 
-    </div>
+      <div id="app">
+          <v-app>
+                  <v-app>
+                          <v-toolbar app>
+                            <v-toolbar-title>Notre plateforme : Sparkyyy</v-toolbar-title>
+                          </v-toolbar>
+                          <v-content>
+                            <v-container fluid>
+                                <v-layout>
+                                    <v-flex xs12 sm6 offset-sm3>
+                                      <v-card>
+                                        <v-card-title primary-title>
+                                          <div>
+                                            <h3 class="headline mb-0">Enter your name:</h3>
+                                            <div><input v-model="name" type="text" placeholder="name">
+                                              <button v-on:click="sayHello">Hey you!</button>
+                                            </div>
+                                            <div v-if="isLoggedIn">
+                                                Welcome to coligo!
+                                                <button @click="login" type="submit">Logout</button>
+                                              </div>
+                                              <div v-else>
+                                                <input type="text" placeholder="username">
+                                                <input type="password" placeholder="password">
+                                                <button @click="login" type="submit">Login</button>
+                                              </div>   
+                                          </div>
+                                        </v-card-title>
+                                        <v-card-actions>
+                                          <v-btn flat color="orange">Share</v-btn>
+                                          <v-btn flat color="orange">Explore</v-btn>
+                                        </v-card-actions>
+                                      </v-card>
+                                    </v-flex>
+                                  </v-layout>
 
-    <script>
+                                                         
+                            </v-container>
+                          </v-content>
+          </v-app>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <script src="https://unpkg.com/vue/dist/vue.js"></script>
+        <script src="https://unpkg.com/vuetify/dist/vuetify.js"></script>
+     <script>
       // our VueJs instance bound to the div with an id of vue-instance
       var vm = new Vue({
-        el: '#vue-instance',
+        el: '#app',
         data: {
-          greeting: '',
           name: '',
           isLoggedIn: false
         },
         methods: {
           sayHello: function(){
-            alert('Hey there, ' + this.name);
+            alert('Hey ' + this.name + ' bienvenue sur notre plateforme'   );
           },
           login: function(){
               // 'this' refers to the vm instance
               this.isLoggedIn = !this.isLoggedIn;
+              
             }
         }
       });
     </script>
-      
   </body>
 </html>
