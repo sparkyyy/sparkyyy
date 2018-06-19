@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>VueJs Tutorial - coligo</title>
+    <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' rel="stylesheet">
+  <link href="https://unpkg.com/vuetify/dist/vuetify.min.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+  </head>
+  <body>
+      <div id="app">
+          <v-app>
+                  <v-app dark>
+                          <v-toolbar app>
+                          <v-toolbar-title>Sparkyyy, l'avenir de l'eSport est ici. </v-toolbar-title>
+                          </v-toolbar >
+                          <v-content>
+                            <v-container fluid>
+                                <v-layout>
+                                    <v-flex xs12 sm6 offset-sm3>
+                                      <v-card>
+                                        <v-card-title primary-title>
+                                          <div>
+                                            <h3 class="headline mb-0">Enter in the world of eSport:</h3>
+                                            <div>
+                                            </div>
+                                          </div>
+                                        </v-card-title>
+                                        <v-card-actions>
+
+                                            <div v-if="isLoggedIn">
+                                                Bienvenue chez Sparkyyy!
+                                                <v-btn  @click="login"flat color="red">logout</v-btn>
+                                              </div>
+                                              <div v-else>
+
+                                                  <v-form v-model="valid">
+
+                                                    <v-text-field type="text" placeholder="username" v-model="username"
+                                                    :rules="nameRules"
+                                                    :counter="15"
+                                                    label="Username"
+                                                    required></v-text-field>
+
+                                                    <v-text-field type="password" placeholder="password" v-model="password"
+                                                    :rules="passwordRules"
+                                                    label="password"
+                                                    required></v-text-field>
+
+                                                    <v-btn :disabled="!valid" @click="login" flat color="green">Login</v-btn>
+                                                  </v-form>
+                                              </div>
+                                        </v-card-actions>
+                                      </v-card>
+                                    </v-flex>
+                                  </v-layout>                        
+                            </v-container>
+                          </v-content>
+          </v-app>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <script src="https://unpkg.com/vue/dist/vue.js"></script>
+        <script src="https://unpkg.com/vuetify/dist/vuetify.js"></script>
+     <script>
+      // our VueJs instance bound to the div with an id of vue-instance
+      var vm = new Vue({
+        el: '#app',
+        data: {
+          valid: false,
+          name: '',
+          username: '',
+          nameRules: [
+            v => !!v || 'Name is required',
+            v => v.length <= 15 || 'Name must be less than 15 characters'
+          ],
+          password: '',
+          passwordRules: [
+            v => !!v || 'password is required'
+          ],
+          isLoggedIn: false
+        },
+        methods: {
+          sayHello: function(){
+            alert('Hey ' + this.name + ' tu es un vrai joueur '   )
+            ;
+          },
+          login: function(){
+              // 'this' refers to the vm instance
+              this.isLoggedIn = !this.isLoggedIn; 
+            }
+        }
+      });
+    </script>
+  </body>
+</html>
