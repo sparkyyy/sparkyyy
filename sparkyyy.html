@@ -20,7 +20,7 @@
                                       <v-card>
                                         <v-card-title primary-title>
                                           <div>
-                                            <h3 class="headline mb-0">Enter in the world of eSport:</h3>
+                                            <h3 class="headline mb-0">Entrer dans le monde de l'eSport:</h3>
                                             <div>
                                             </div>
                                           </div>
@@ -28,7 +28,7 @@
                                         <v-card-actions>
 
                                             <div v-if="isLoggedIn">
-                                                Bienvenue chez Sparkyyy!
+                                                <h3> Bienvenue chez Sparkyyy! </h3>
                                                 <v-btn  @click="login"flat color="red">logout</v-btn>
                                               </div>
                                               <div v-else>
@@ -48,6 +48,24 @@
 
                                                     <v-btn :disabled="!valid" @click="login" flat color="green">Login</v-btn>
                                                   </v-form>
+                                              </div>
+                                        </v-card-actions>
+                                      </v-card>
+                                      <v-card  v-if="isLoggedIn">
+                                        <v-card-title primary-title>
+                                          <div>
+                                            <h3 class="headline mb-0">Les jeux en avant sur notre plateforme sont :</h3>
+                                            <p>Fortnite, CS GO ...</p>
+                                            <div>
+                                            </div>
+                                          </div>
+                                        </v-card-title>
+                                        <v-card-actions>
+
+                                            <div>
+                                                <h3>Nous rejoindre, nous contacter</h3>
+                                                <p>Rejoignez notre discord en cliquant sur ce lien ... </p>
+                                                
                                               </div>
                                         </v-card-actions>
                                       </v-card>
